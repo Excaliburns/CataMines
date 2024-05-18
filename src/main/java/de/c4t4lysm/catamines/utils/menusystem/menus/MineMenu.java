@@ -161,7 +161,9 @@ public class MineMenu extends Menu {
                 .replaceAll("%teleports%", String.valueOf(mine.isTeleportPlayers()))
                 .replaceAll("%resettp%", String.valueOf(mine.isTeleportPlayersToResetLocation()))
                 .replaceAll("%replacemode%", String.valueOf(mine.isReplaceMode()))
-                .replaceAll("%warndistance%", String.valueOf(mine.getWarnDistance())));
+                .replaceAll("%warndistance%", String.valueOf(mine.getWarnDistance()))
+                .replaceAll("%itemdamageoff%", String.valueOf(mine.isItemsDontTakeDurabilityDamage())));
+
         inventory.setItem(14, ItemStackBuilder.buildItem(Material.TORCH, plugin.getLangString("GUI.Mine-Menu.Items.Flag-Menu.Name"), flagLore));
 
         // ItemStack for configuring min. efficiency level

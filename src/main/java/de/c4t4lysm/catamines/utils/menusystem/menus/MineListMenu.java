@@ -139,6 +139,7 @@ public class MineListMenu extends PaginatedMenu {
                     lore.add(ChatColor.AQUA + "  Warn seconds: " + ChatColor.RED + warnSeconds.substring(1, warnSeconds.length() - 1));
                     lore.add(ChatColor.AQUA + "  Warn distance: " + ChatColor.RED + cuboidCataMine.getWarnDistance());
                     lore.add(ChatColor.AQUA + "Is stopped: " + ChatColor.RED + cuboidCataMine.isStopped());
+                    lore.add(ChatColor.AQUA + "Item damage off: " + ChatColor.RED + cuboidCataMine.isItemsDontTakeDurabilityDamage());
 
                     ItemStack mineItem = ItemStackBuilder.buildItem(material, !cuboidCataMine.isStopped() && cuboidCataMine.isRunnable() ? ChatColor.GREEN + cuboidCataMine.getName() : ChatColor.RED + cuboidCataMine.getName(), lore);
 

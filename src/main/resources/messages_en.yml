@@ -88,6 +88,7 @@ GUI:
           - "&eTeleports: &f%teleports%"
           - "  &eTo resettp: &f%resettp%"
           - "&eReplaces: &f%replacemode%"
+          - "&eItem Damage Off: &f%itemdamageoff%"
       Efficiency-Lvl:
         Name: "&6Efficiency Lvl"
         Lore:
@@ -298,6 +299,19 @@ GUI:
             - ""
             - "&fCurrently teleports to the"
             - "&ftop of the mine on reset"
+      Items-Dont-Take-Durability-Damage:
+        Active:
+          Name: "&a&lItems don't take durability damage"
+          Lore:
+            - ""
+            - "&fCurrently items don't take"
+            - "&fdurability damage"
+        Inactive:
+          Name: "&7Items don't take durability damage"
+          Lore:
+            - ""
+            - "&fCurrently items do take"
+            - "&fdurability damage"
       Replace-Mode:
         Active:
           Name: "&a&lReplaces air"
@@ -361,6 +375,7 @@ Commands:
       Reset-Message: "&aUpdated reset message."
       Warn-Distance: "Warn distance of &b%mine% &7set to &a%arg%."
       Warn-Seconds: "&aUpdated warn seconds."
+    Items-Dont-Take-Durability-Damage: "Items will not take damage in &b%mine% &7set to &a%arg%."
   Start: "&aStarted %mine%."
   Stop: "&cStopped %mine%."
   Start-Tasks: "&aStarted all mine tasks"

@@ -17,6 +17,7 @@ import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
@@ -123,6 +124,11 @@ public class CuboidCataMine extends AbstractCataMine implements Cloneable, Confi
             teleportPlayersToResetLocation = (boolean) serializedCataMine.get("teleportPlayersToResetLocation");
         }
 
+        boolean itemsDontTakeDurabilityDamage = false;
+        if (serializedCataMine.containsKey("itemsDontTakeDurabilityDamage")) {
+            itemsDontTakeDurabilityDamage = (boolean) serializedCataMine.get("itemsDontTakeDurabilityDamage");
+        }
+
         boolean warnHotbar = false;
         String warnHotbarMessage = "&a%seconds%";
         boolean warn = false;
@@ -198,6 +204,7 @@ public class CuboidCataMine extends AbstractCataMine implements Cloneable, Confi
         mine.setTeleportLocation(teleportLocation);
         mine.setMinEfficiencyLvl(minEfficiencyLvl);
         mine.setTeleportPlayersToResetLocation(teleportPlayersToResetLocation);
+        mine.setItemsDontTakeDurabilityDamage(itemsDontTakeDurabilityDamage);
         mine.setTeleportResetLocation(teleportResetLocation);
 
         mine.setCountdown(countdown);
@@ -239,6 +246,7 @@ public class CuboidCataMine extends AbstractCataMine implements Cloneable, Confi
         mapSerializer.put("replaceMode", replaceMode);
         mapSerializer.put("teleportPlayers", teleportPlayers);
         mapSerializer.put("teleportPlayersToResetLocation", teleportPlayersToResetLocation);
+        mapSerializer.put("itemsDontTakeDurabilityDamage", itemsDontTakeDurabilityDamage);
         mapSerializer.put("isStopped", isStopped);
         mapSerializer.put("warn", warn);
 
@@ -258,6 +266,12 @@ public class CuboidCataMine extends AbstractCataMine implements Cloneable, Confi
         mapSerializer.put("teleportResetLocation", teleportResetLocation);
 
         return mapSerializer;
+    }
+
+    public void handlePlayerItemDamage(PlayerItemDamageEvent event) {
+        if (itemsDontTakeDurabilityDamage) {
+            event.setCancelled(true);
+        }
     }
 
     public void handleBlockBreak(BlockBreakEvent event) {

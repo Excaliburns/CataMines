@@ -21,6 +21,7 @@ import org.bukkit.Material;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.util.BoundingBox;
 
 import java.util.*;
@@ -50,6 +51,7 @@ public abstract class AbstractCataMine implements Cloneable {
     protected Location teleportLocation;
     protected int minEfficiencyLvl;
     protected boolean teleportPlayersToResetLocation;
+    protected boolean itemsDontTakeDurabilityDamage;
     protected Location teleportResetLocation;
     protected long blockCount;
     protected boolean runnable;
@@ -425,6 +427,8 @@ public abstract class AbstractCataMine implements Cloneable {
         return output;
     }
 
+    public abstract void handlePlayerItemDamage(PlayerItemDamageEvent event);
+
     public abstract void handleBlockBreak(BlockBreakEvent event);
 
     public String getName() {
@@ -603,6 +607,10 @@ public abstract class AbstractCataMine implements Cloneable {
     public void setTeleportResetLocation(Location teleportResetLocation) {
         this.teleportResetLocation = teleportResetLocation;
     }
+
+    public boolean isItemsDontTakeDurabilityDamage() { return itemsDontTakeDurabilityDamage; }
+
+    public void setItemsDontTakeDurabilityDamage(boolean itemsDontTakeDurabilityDamage) { this.itemsDontTakeDurabilityDamage = itemsDontTakeDurabilityDamage; }
 
     public int getMinEfficiencyLvl() {
         return minEfficiencyLvl;

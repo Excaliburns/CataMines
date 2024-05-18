@@ -21,6 +21,7 @@ public class FlagCommandsHandler implements CommandInterface {
         flagCommands.put("rename", new RenameCommand());
         flagCommands.put("teleportplayers", new TeleportPlayersCommand());
         flagCommands.put("teleportplayerstoresetlocation", new TeleportPlayersToResetLocationCommand());
+        flagCommands.put("itemdamageoff", new ItemsDontTakeDurabilityDamageCommand());
         flagCommands.put("warnhotbar", new WarnHotbarCommand());
         flagCommands.put("warnhotbarmessage", new WarnHotbarMessageCommand());
         flagCommands.put("warn", new WarnCommand());

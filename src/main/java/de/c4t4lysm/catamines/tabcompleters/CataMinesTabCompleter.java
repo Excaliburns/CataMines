@@ -85,6 +85,7 @@ public class CataMinesTabCompleter implements TabCompleter {
                     case "warnglobal":
                     case "teleportplayers":
                     case "teleportplayerstoresetlocation":
+                    case "itemdamageoff":
                         return StringUtil.copyPartialMatches(args[3], Arrays.asList("true", "false"), new ArrayList<>());
                 }
                 break;

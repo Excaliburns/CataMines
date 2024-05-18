@@ -45,6 +45,9 @@ public class FlagsMenu extends Menu {
             case 10:
                 mine.setWarnGlobal(!mine.isWarnGlobal());
                 break;
+            case 12:
+                mine.setItemsDontTakeDurabilityDamage(!mine.isItemsDontTakeDurabilityDamage());
+                break;
             case 28:
                 mine.setWarnHotbar(!mine.isWarnHotbar());
                 break;
@@ -137,6 +140,19 @@ public class FlagsMenu extends Menu {
                     Material.GRAY_DYE,
                     plugin.getLangString("GUI.Flags-Menu.Items.Teleport-Players-To-Reset-Location.Inactive.Name"),
                     plugin.getLangStringList("GUI.Flags-Menu.Items.Teleport-Players-To-Reset-Location.Inactive.Lore")));
+        }
+
+        // Items don't take durability damage
+        if (mine.isItemsDontTakeDurabilityDamage()) {
+            inventory.setItem(12, ItemStackBuilder.buildItem(
+                    Material.LIME_DYE,
+                    plugin.getLangString("GUI.Flags-Menu.Items.Items-Dont-Take-Durability-Damage.Active.Name"),
+                    plugin.getLangStringList("GUI.Flags-Menu.Items.Items-Dont-Take-Durability-Damage.Active.Lore")));
+        } else {
+            inventory.setItem(12, ItemStackBuilder.buildItem(
+                    Material.GRAY_DYE,
+                    plugin.getLangString("GUI.Flags-Menu.Items.Items-Dont-Take-Durability-Damage.Inactive.Name"),
+                    plugin.getLangStringList("GUI.Flags-Menu.Items.Items-Dont-Take-Durability-Damage.Inactive.Lore")));
         }
 
         // Replace mode
