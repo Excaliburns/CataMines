@@ -42,9 +42,6 @@ public class BlockListeners implements Listener {
                     event.getPlayer().getLocation().getZ()
             );
 
-            System.out.println(expandedMineRegion.toString());
-            System.out.println(playerPos.toString());
-
             if (event.getPlayer().getWorld().getName().equals(mine.getWorld())
                     && expandedMineRegion.contains(playerPos)) {
                 mine.handlePlayerItemDamage(event);
